@@ -22,10 +22,10 @@ Article.prototype.toHtml = function() {
 };
 
 Article.loadAll = rawData => {
-  rawData.sort((a,b) => (new Date(b.publishedOn)) - (new Date(a.publishedOn)))
+  rawData.sort((a,b) => (new Date(b.publishedOn)) - (new Date(a.publishedOn)));
 
-  rawData.forEach(articleObject => Article.all.push(new Article(articleObject)))
-}
+  rawData.forEach(articleObject => Article.all.push(new Article(articleObject)));
+};
 
 Article.fetchAll = () => {
   if (localStorage.rawData) {
@@ -41,7 +41,7 @@ Article.fetchAll = () => {
         console.error(err);
       });
   }
-}
+};
 
 // REVIEW: This new prototype method on the Article object constructor will allow us to create a new article from the new.html form page, and submit that data to the back-end. We will see this log out to the server in our terminal!
 Article.prototype.insertRecord = function(callback) {
@@ -50,7 +50,8 @@ Article.prototype.insertRecord = function(callback) {
       console.log(data);
 
       // COMMENT: What is the purpose of this line? Is the callback invoked when this method is called? Why or why not?
-      // PUT YOUR RESPONSE HERE
+      // articleView.js is waiting for a submit for "#new-form" in order to create a new article by invoking articleView.submit
+      // No callback has to wait for the '.then' method to run
       if (callback) callback();
-    })
+    });
 };

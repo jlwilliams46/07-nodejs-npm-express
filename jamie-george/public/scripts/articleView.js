@@ -112,7 +112,8 @@ articleView.create = () => {
 };
 
 // COMMENT: When is this function called? What event ultimately triggers its execution?
-// PUT YOUR RESPONSE HERE
+// It fires up when a sumbit happens on "#new-form"
+// It's called in article.js
 articleView.submit = event => {
   event.preventDefault();
   let article = new Article({
@@ -125,7 +126,7 @@ articleView.submit = event => {
   });
 
   // COMMENT: Where is this function defined? When is this function called? What event ultimately triggers its execution?
-  // PUT YOUR RESPONSE HERE
+  // It's defined inside the article.js file. The function is called below and it triggers the appending of the articles.
   article.insertRecord();
 }
 
